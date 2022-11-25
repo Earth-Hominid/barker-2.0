@@ -83,7 +83,7 @@ function TopNavigation({
             duration: 1.5,
           }}
         >
-          <IconContainer>
+          <IconContainer className="md:hidden">
             <RelativeContainer>
               <AbsoluteContainer></AbsoluteContainer>
               <StyledButton>
@@ -107,12 +107,12 @@ function TopNavigation({
               <StyledButton onClick={handleToggleThemeClick}>
                 {darkMode ? (
                   <>
-                    <MoonIcon className="h-6 w-6 text-stone-600" />
+                    <MoonIcon className="h-5 w-5 text-stone-600" />
                     <HeaderSpan>Light Mode</HeaderSpan>
                   </>
                 ) : (
                   <>
-                    <SunIcon className="h-6 w-6 text-stone-600" />
+                    <SunIcon className="h-5 w-5 text-stone-600" />
                     <HeaderSpan>Dark Mode</HeaderSpan>
                   </>
                 )}
@@ -125,9 +125,9 @@ function TopNavigation({
                 className="md:hidden"
               >
                 {navigationMenuToggle ? (
-                  <XMarkIcon className="h-6 w-6 text-stone-500" />
+                  <XMarkIcon className="h-5 w-5 text-stone-500" />
                 ) : (
-                  <Bars3Icon className="h-6 w-6 text-stone-500" />
+                  <Bars3Icon className="h-5 w-5 text-stone-500" />
                 )}
               </StyledButton>
             </RelativeContainer>

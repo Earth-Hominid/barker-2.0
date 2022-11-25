@@ -29,17 +29,14 @@ const Layout: React.FC<Props> = ({ title, description, keywords }) => {
           <meta name="description" content={description} />
           <meta name="keywords" content={keywords} />
         </Head>
-
-        <div className="dark:bg=[#0E141B] min-w-[400px]">
+        <div className="dark:bg-[#0E141B] min-w-[400px]">
           <header id="header">
             <Header
               handleToggleThemeClick={handleToggleThemeClick}
               darkMode={darkMode}
             />
           </header>
-
           <section id="hero" className="min-h-screen"></section>
-
           <footer id="footer">
             <Footer />
           </footer>

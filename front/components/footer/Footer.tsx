@@ -1,9 +1,15 @@
-import React from 'react';
+import FooterSiteNavigation from './footer-site-navigation/FooterSiteNavigation';
+import FooterLinks from './footer-links/FooterLinks';
 
 type Props = {};
 
-function Footer({}: Props) {
-  return <>Footer</>;
-}
+const Footer = (props: Props) => {
+  return (
+    <>
+      <FooterSiteNavigation />
+      <FooterLinks />
+    </>
+  );
+};
 
 export default Footer;
