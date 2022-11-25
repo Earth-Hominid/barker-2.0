@@ -19,7 +19,6 @@ import {
   OrangeIconWrap,
   BlueIconWrap,
   SkyIconWrap,
-  GreenIconWrap,
   IndigoIconWrap,
   LogoutButtonLink,
   CyanIconWrap,
