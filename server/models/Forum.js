@@ -1,25 +1,16 @@
 const mongoose = require('mongoose');
 
-const ForumSchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-    },
-    description: {
-      type: String,
-    },
-    posts: {
-      type: Array,
-    },
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-    },
-    members: {
-      type: Array,
-    },
+const ForumSchema = mongoose.Schema({
+  name: {
+    type: String,
   },
-  { timestamps: true }
-);
+  description: {
+    type: String,
+  },
+  memberId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Member',
+  },
+});
 
 module.exports = mongoose.model('Forum', ForumSchema);
