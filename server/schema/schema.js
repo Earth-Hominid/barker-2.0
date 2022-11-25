@@ -10,8 +10,10 @@ const {
   GraphQLID,
   GraphQLString,
   GraphQLList,
+  GraphQLNonNull,
 } = require('graphql');
 
+// Querys
 const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
@@ -44,6 +46,45 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+// Mutations
+const barkerMutations = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addMember: {
+      type: MemberType,
+      args: {
+        username: { type: new GraphQLNonNull(GraphQLString) },
+        email: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve(parent, args) {
+        const member = new Member({
+          username: args.username,
+          email: args.email,
+        });
+
+        return member.save();
+      },
+    },
+    deleteMember: {
+      type: MemberType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parent, args) {
+        return Member.findByIdAndRemove(args.id, args);
+      },
+    },
+    addForum: {
+      type: ForumType,
+      args: {
+        name: { type: new GraphQLNonNull(GraphQLString) },
+        description: { type: new GraphQLNonNull(GraphQLString) },
+      },
+    },
+  },
+});
+
 module.exports = new GraphQLSchema({
   query: RootQuery,
+  mutation: barkerMutations,
 });
