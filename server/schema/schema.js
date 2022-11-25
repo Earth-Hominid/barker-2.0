@@ -34,7 +34,7 @@ const ForumType = new GraphQLObjectType({
     name: { type: GraphQLString },
     description: { type: GraphQLString },
     members: { type: new GraphQLList(UserType) },
-    userId: {
+    creator: {
       type: UserType,
       resolve(parent, args) {
         return User.findById(parent.userId);
@@ -54,13 +54,13 @@ const PostType = new GraphQLObjectType({
     content: { type: GraphQLString },
     votes: { type: GraphQLInt },
     comments: { type: new GraphQLList(CommentType) },
-    forumId: {
+    forum: {
       type: ForumType,
       resolve(parent, args) {
         return Forum.findById(parent.forumId);
       },
     },
-    userId: {
+    creator: {
       type: UserType,
       resolve(parent, args) {
         return User.findById(parent.userId);
@@ -76,19 +76,19 @@ const CommentType = new GraphQLObjectType({
     id: { type: GraphQLID },
     content: { type: GraphQLString },
     votes: { type: GraphQLInt },
-    forumId: {
+    forum: {
       type: ForumType,
       resolve(parent, args) {
         return Forum.findById(parent.forumId);
       },
     },
-    userId: {
+    creator: {
       type: UserType,
       resolve(parent, args) {
         return User.findById(parent.userId);
       },
     },
-    postId: {
+    post: {
       type: PostType,
       resolve(parent, args) {
         return Post.findById(parent.postId);
@@ -104,25 +104,25 @@ const VoteType = new GraphQLObjectType({
     id: { type: GraphQLID },
     upvote: { type: GraphQLBoolean },
     downvote: { type: GraphQLBoolean },
-    userId: {
+    creator: {
       type: UserType,
       resolve(parent, args) {
         return users.findById(parent.userId);
       },
     },
-    forumId: {
+    forum: {
       type: ForumType,
       resolve(parent, args) {
         return forums.findById(parent.subforumId);
       },
     },
-    postId: {
+    post: {
       type: PostType,
       resolve(parent, args) {
         return posts.findById(parent.postId);
       },
     },
-    commentId: {
+    comment: {
       type: CommentType,
       resolve(parent, args) {
         return comments.findById(parent.commentId);
