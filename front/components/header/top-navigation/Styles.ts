@@ -1,7 +1,7 @@
 import tw from 'tailwind-styled-components';
 
 export const MainContainer = tw.div`
-  dark:bg-[#16181D]
+  dark:bg-stone-800
   bg-white
   w-full
 `;
@@ -17,24 +17,6 @@ export const InsideContainer = tw.div`
   justify-between 
   max-w-7xl 
   mx-auto
-`;
-
-export const LogoText = tw.h3`
-  font-montserrat
-  font-bold
-  dark:text-slate-300
-  text-gray-800
-  leading-loose
-  text-2xl
-  md:text-3xl
-  ml-2
-`;
-
-export const LinkText = tw.h3`
-  hover:text-indigo-600
-  dark:hover:text-blue-400
-  cursor-pointer
-  text-lg
 `;
 
 export const IconContainer = tw.div`
@@ -73,10 +55,24 @@ export const AbsoluteContainer = tw.div`
   duration-500
 `;
 
+export const IconLink = tw.a`
+  text-stone-600 
+  dark:text-stone-400
+  w-5
+  h-5
+`;
+
+export const IconHolder = tw.div`
+  text-stone-600 
+  dark:text-stone-400
+  w-5
+  h-5
+`;
+
 export const StyledButton = tw.button`
   relative  
   group
-dark:bg-[#23272F]
+dark:bg-stone-900
 dark:hover:border-stone-500
 dark:hover:text-stone-500
 bg-stone-200

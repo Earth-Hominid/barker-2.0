@@ -14,11 +14,7 @@ const Logo = () => {
     <>
       <Link href={'/'}>
         <ImageContainer>
-          {darkMode ? (
-            <Image src={DarkLogo} alt="barker logo" priority={true} />
-          ) : (
-            <Image src={LightLogo} alt="barker logo" priority={true} />
-          )}
+          <Image src={LightLogo} alt="barker logo" priority={true} />
         </ImageContainer>
       </Link>
     </>

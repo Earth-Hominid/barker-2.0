@@ -8,25 +8,33 @@ export const MainContainer = tw.div`
 export const SubContainer = tw.div`
   flex 
   flex-row 
-  items-center 
+  items-center
+  space-x-2
   lg:mx-6
   lg:min-w-[150px]
   relative
   cursor-pointer
+  hover:border
+  hover:border-stone-400
+  border
+  border-transparent
+  rounded-md
+  p-2
 `;
 
 export const HomeText = tw.p`
   flex-1
   hidden
   ml-2
-  lg:inline
+  md:inline
   text-stone-600
+  dark:text-stone-400
   font-bold
 `;
 
 export const LargeIconHolder = tw.div`
 text-stone-500
-dark:text-stone-200
+dark:text-stone-400
   w-6 h-6 
   md:h-8
   md:w-8
@@ -35,10 +43,8 @@ dark:text-stone-200
 export const IconHolder = tw.div`
   h-4 
   w-4
-  md:h-5
-  md:w-5
   text-stone-500
-  dark:text-stone-200
+  dark:text-stone-400
   rounded-3xl
 `;
 
@@ -47,6 +53,7 @@ export const MenuContainer = tw.div`
   flex-col
   dark:bg:-[#0E141B]
   bg-white
+  dark:bg-stone-800
   border
   border-zinc-400
   dark:border-zinc-200
@@ -64,29 +71,22 @@ export const MenuContainer = tw.div`
 export const MenuHeader = tw.div`
   mt-3
   text-sm
-  text-gray-400
+  text-stone-500
   p-1
 `;
 
 export const ButtonHolder = tw.div`
   flex 
   flex-row
-  text-gray-600
-  hover:bg-yellow-100
+  text-stone-600
+  hover:bg-stone-200
+  dark:text-stone-400
+  dark:hover:bg-stone-900
   cursor-pointer
   w-full
   rounded-md
   items-center
   p-2
-`;
-
-export const MenuItem = tw.li`
-  text-gray-500
-  hover:bg-gray-300
-  cursor-pointer
-  w-full
-  rounded-md
-  p-1
 `;
 
 export const LoadingText = tw.p`

@@ -17,7 +17,8 @@ import DropdownContainer from './drop-down-menu/DropdownContainer';
 import {
   MainContainer,
   InsideContainer,
-  LinkText,
+  IconLink,
+  IconHolder,
   IconContainer,
   RelativeContainer,
   AbsoluteContainer,
@@ -87,18 +88,18 @@ function TopNavigation({
             <RelativeContainer>
               <AbsoluteContainer></AbsoluteContainer>
               <StyledButton>
-                <a href="#">
-                  <BuildingLibraryIcon className="h-5 w-5 text-stone-600" />
-                </a>
+                <IconLink href="#">
+                  <BuildingLibraryIcon />
+                </IconLink>
                 <HeaderSpan>All Barks</HeaderSpan>
               </StyledButton>
             </RelativeContainer>
             <RelativeContainer>
               <AbsoluteContainer></AbsoluteContainer>
               <StyledButton>
-                <a href="#">
-                  <ChatBubbleBottomCenterTextIcon className="h-5 w-5 text-stone-600" />
-                </a>
+                <IconLink href="#">
+                  <ChatBubbleBottomCenterTextIcon />
+                </IconLink>
                 <HeaderSpan>Create Bark</HeaderSpan>
               </StyledButton>
             </RelativeContainer>
@@ -107,12 +108,18 @@ function TopNavigation({
               <StyledButton onClick={handleToggleThemeClick}>
                 {darkMode ? (
                   <>
-                    <MoonIcon className="h-5 w-5 text-stone-600" />
+                    <IconHolder>
+                      <MoonIcon />
+                    </IconHolder>
+
                     <HeaderSpan>Light Mode</HeaderSpan>
                   </>
                 ) : (
                   <>
-                    <SunIcon className="h-5 w-5 text-stone-600" />
+                    <IconHolder>
+                      <SunIcon />
+                    </IconHolder>
+
                     <HeaderSpan>Dark Mode</HeaderSpan>
                   </>
                 )}
@@ -125,9 +132,13 @@ function TopNavigation({
                 className="md:hidden"
               >
                 {navigationMenuToggle ? (
-                  <XMarkIcon className="h-5 w-5 text-stone-500" />
+                  <IconHolder>
+                    <XMarkIcon />
+                  </IconHolder>
                 ) : (
-                  <Bars3Icon className="h-5 w-5 text-stone-500" />
+                  <IconHolder>
+                    <Bars3Icon />
+                  </IconHolder>
                 )}
               </StyledButton>
             </RelativeContainer>
