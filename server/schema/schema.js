@@ -74,11 +74,70 @@ const barkerMutations = new GraphQLObjectType({
         return Member.findByIdAndRemove(args.id, args);
       },
     },
+    updateMember: {
+      type: MemberType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        username: { type: GraphQLString },
+        email: { type: GraphQLString },
+      },
+      resolve(parent, args) {
+        return Member.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              username: args.username,
+              email: args.email,
+            },
+          },
+          { new: true }
+        );
+      },
+    },
+
     addForum: {
       type: ForumType,
       args: {
         name: { type: new GraphQLNonNull(GraphQLString) },
         description: { type: new GraphQLNonNull(GraphQLString) },
+        memberId: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parent, args) {
+        const forum = new Forum({
+          name: args.name,
+          description: args.description,
+          memberId: args.memberId,
+        });
+        return forum.save();
+      },
+    },
+    deleteForum: {
+      type: ForumType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parent, args) {
+        return Forum.findByIdAndRemove(args.id, args);
+      },
+    },
+    updateForum: {
+      type: ForumType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        name: { type: GraphQLString },
+        description: { type: GraphQLString },
+      },
+      resolve(parent, args) {
+        return Forum.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              name: args.name,
+              description: args.description,
+            },
+          },
+          { new: true }
+        );
       },
     },
   },

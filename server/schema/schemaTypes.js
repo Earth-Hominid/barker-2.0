@@ -1,3 +1,7 @@
+// Mongoose models
+const Member = require('../models/Member');
+const Forum = require('../models/Forum');
+
 const {
   GraphQLObjectType,
   GraphQLSchema,
@@ -26,7 +30,7 @@ const ForumType = new GraphQLObjectType({
     creator: {
       type: MemberType,
       resolve(parent, args) {
-        return members.findById(parent.memberId);
+        return Member.findById(parent.memberId);
       },
     },
   }),
