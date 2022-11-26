@@ -19,6 +19,52 @@ export const ActionButtonHolder = tw.div`
 export const NavigationMenu = tw.div`
 `;
 
+export const RelativeContainer = tw.div`
+  relative
+  group
+`;
+
+export const AbsoluteRectangle = tw.div`
+  hidden
+  group-hover:flex
+  blur-sm
+  absolute
+  rounded-md
+  -inset-0.5
+  dark:bg-stone-500
+  bg-stone-600
+  opacity-90
+  group-hover:opacity-100
+  transition
+  group-hover:duration-300
+  duration-500
+`;
+
+export const DemoButton = tw.button`
+  relative
+  group
+  text-stone-500 
+  dark:text-stone-400
+  dark:hover:text-[#EADEB9]
+  dark:bg-stone-900
+  dark:hover:border-stone-500
+  bg-stone-200
+  rounded-md
+  p-2
+  flex
+  items-center
+  text-sm
+  border
+  border-transparent
+  hover:border-stone-500
+  hover:text-stone-600
+  transition-all
+  duration-300
+  ease-linear
+  shadow-lg
+  whitespace-nowrap
+`;
+
 export const DemoAccountButton = tw.button`
   flex 
   items-center
@@ -44,6 +90,31 @@ export const IconWrap = tw.div`
   h-5
   w-5 
   mr-1
+`;
+
+export const LoginButtonLink = tw.button`
+  flex
+  items-center
+  border-2
+  whitespace-nowrap
+  bg-[#EADEB9]
+  text-[#605649]
+  dark:hover:text-[#EADEB9]
+  hover:border-[#605649]
+  border-[#EADEB9]
+  dark:hover:border-[#EADEB9]
+  dark:hover:bg-transparent
+  py-1
+  px-3
+  rounded-3xl
+  cursor-pointer
+  hover:bg-transparent
+  hover:border-2
+  transition
+  duration-300
+  ease-in-out
+  text-sm
+  font-semibold
 `;
 
 export const ButtonLink = tw.button`

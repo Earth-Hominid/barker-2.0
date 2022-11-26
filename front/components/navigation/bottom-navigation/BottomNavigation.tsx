@@ -9,16 +9,14 @@ import SearchBar from '../searchbar/Searchbar';
 import {
   BottomNavigationMenu,
   ActionButtonHolder,
-  ThemeButton,
-  IconWrap,
+  RelativeContainer,
+  AbsoluteRectangle,
   NavigationMenu,
+  LoginButtonLink,
   LogoutButtonLink,
   ButtonLink,
   SignUpButtonLink,
-  CreateSubforumButton,
-  CreatePostButton,
-  DashboardButton,
-  DemoAccountButton,
+  DemoButton,
 } from './Styles';
 
 function BottomNavigation({
@@ -54,9 +52,15 @@ function BottomNavigation({
         <SearchBar />
       </ActionButtonHolder>
       <ActionButtonHolder>
-        <DemoAccountButton>Demo Account</DemoAccountButton>
-        <ButtonLink>Already a member?</ButtonLink>
-        <SignUpButtonLink>Login</SignUpButtonLink>
+        <RelativeContainer>
+          <AbsoluteRectangle></AbsoluteRectangle>
+          <DemoButton>Demo Account</DemoButton>
+        </RelativeContainer>
+        <RelativeContainer>
+          <AbsoluteRectangle></AbsoluteRectangle>
+          <DemoButton>Sign Up</DemoButton>
+        </RelativeContainer>
+        <LoginButtonLink>Login</LoginButtonLink>
       </ActionButtonHolder>
       <NavigationMenu>
         <MenuAccordian props={subforumObject} />

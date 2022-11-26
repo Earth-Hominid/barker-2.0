@@ -118,7 +118,7 @@ export const StyledTextButton = tw.button`
   hidden
   relative  
   group
-  text-stone-600 
+  text-stone-500 
   dark:text-stone-400
   dark:hover:text-[#EADEB9]
 dark:bg-stone-900
@@ -132,7 +132,7 @@ bg-stone-200
   border
   border-transparent
 hover:border-stone-500
-hover:text-stone-500
+hover:text-stone-600
   transition-all
   duration-300
   ease-linear
@@ -171,7 +171,9 @@ export const HamburgerContainer = tw.div`
 `;
 
 export const LoginButtonLink = tw.button`
-  hidden md:inline-flex
+  hidden 
+  md:inline-flex
+  items-center
   border-2
   whitespace-nowrap
   bg-[#EADEB9]

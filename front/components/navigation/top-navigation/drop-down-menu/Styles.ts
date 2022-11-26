@@ -3,6 +3,7 @@ import tw from 'tailwind-styled-components';
 export const MainContainer = tw.div`
   flex 
   flex-row
+  z-50
 `;
 
 export const SubContainer = tw.div`
