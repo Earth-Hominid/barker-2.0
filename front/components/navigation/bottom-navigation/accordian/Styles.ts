@@ -21,8 +21,8 @@ export const AccordianSummary = tw.summary`
 `;
 
 export const SummaryTitle = tw.h2`
-  text-zinc-600
-   dark:text-stone-400
+  text-stone-600
+  dark:text-stone-400
   font-regular
   flex
   flex-1
@@ -38,11 +38,12 @@ export const AccordianContentContainer = tw.div`
 export const AccordianText = tw.p`
   p-2
   text-sm
-  text-gray-600
+  text-stone-600
   dark:text-[#EADEB9]
   tracking-normal
   leading-6
-  hover:bg-yellow-100
+  hover:bg-[#605649]
+  hover:text-[#EADEB9]
   dark:hover:bg-stone-900
   rounded-md
 `;
