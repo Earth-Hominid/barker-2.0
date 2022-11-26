@@ -24,6 +24,7 @@ export const SubContainer = tw.div`
 
 export const HomeText = tw.p`
   flex-1
+  whitespace-nowrap
   hidden
   ml-2
   md:inline
@@ -55,8 +56,7 @@ export const MenuContainer = tw.div`
   bg-white
   dark:bg-stone-800
   border
-  border-zinc-400
-  dark:border-zinc-200
+  border-stone-400
   absolute
   max-w-xl
   min-w-[200px]

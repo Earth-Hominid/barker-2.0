@@ -4,16 +4,13 @@ import {
   XMarkIcon,
   SunIcon,
   MoonIcon,
-  FireIcon,
-  ChatBubbleLeftIcon,
   ChatBubbleBottomCenterTextIcon,
-  UsersIcon,
   BuildingLibraryIcon,
 } from '@heroicons/react/24/outline';
 
 import Logo from '../logo/Logo';
 import DropdownContainer from './drop-down-menu/DropdownContainer';
-
+import HamburgerDropdown from './hamburger-drop-down/HamburgerDropdown';
 import {
   MainContainer,
   InsideContainer,
@@ -23,17 +20,12 @@ import {
   RelativeContainer,
   AbsoluteContainer,
   StyledButton,
+  TextButton,
   HeaderSpan,
-  ButtonContainer,
-  HamburgerContainer,
   ButtonLink,
   SignUpButtonLink,
-  OrangeIconWrap,
-  BlueIconWrap,
-  SkyIconWrap,
-  IndigoIconWrap,
+  LoginButtonLink,
   LogoutButtonLink,
-  CyanIconWrap,
 } from './Styles';
 
 function TopNavigation({
@@ -84,7 +76,7 @@ function TopNavigation({
             duration: 1.5,
           }}
         >
-          <IconContainer className="md:hidden">
+          <IconContainer>
             <RelativeContainer>
               <AbsoluteContainer></AbsoluteContainer>
               <StyledButton>
@@ -126,22 +118,18 @@ function TopNavigation({
               </StyledButton>
             </RelativeContainer>
             <RelativeContainer>
-              <AbsoluteContainer></AbsoluteContainer>
-              <StyledButton
-                onClick={handleNavigationMenuClick}
-                className="md:hidden"
-              >
-                {navigationMenuToggle ? (
-                  <IconHolder>
-                    <XMarkIcon />
-                  </IconHolder>
-                ) : (
-                  <IconHolder>
-                    <Bars3Icon />
-                  </IconHolder>
-                )}
-              </StyledButton>
+              <TextButton>
+                Demo
+                <HeaderSpan>Test Drive</HeaderSpan>
+              </TextButton>
             </RelativeContainer>
+
+            <SignUpButtonLink>Sign Up</SignUpButtonLink>
+            <LoginButtonLink>Login</LoginButtonLink>
+            <HamburgerDropdown
+              handleNavigationMenuClick={handleNavigationMenuClick}
+              navigationMenuToggle={navigationMenuToggle}
+            />
           </IconContainer>
         </motion.div>
       </InsideContainer>
