@@ -7,6 +7,7 @@ export const BottomNavigationMenu = tw.div`
  w-full
  md:hidden
  bg-white
+ dark:bg-stone-800
 `;
 
 export const ActionButtonHolder = tw.div`
