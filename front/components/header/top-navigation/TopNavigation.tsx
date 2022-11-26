@@ -18,10 +18,13 @@ import {
   IconHolder,
   IconContainer,
   RelativeContainer,
+  AbsoluteRectangle,
   AbsoluteContainer,
   StyledButton,
+  StyledTextButton,
   TextButton,
   HeaderSpan,
+  BrownText,
   ButtonLink,
   SignUpButtonLink,
   LoginButtonLink,
@@ -118,13 +121,17 @@ function TopNavigation({
               </StyledButton>
             </RelativeContainer>
             <RelativeContainer>
-              <TextButton>
+              <AbsoluteRectangle></AbsoluteRectangle>
+              <StyledTextButton>
                 Demo
                 <HeaderSpan>Test Drive</HeaderSpan>
-              </TextButton>
+              </StyledTextButton>
+            </RelativeContainer>
+            <RelativeContainer>
+              <AbsoluteRectangle></AbsoluteRectangle>
+              <StyledTextButton>Sign Up</StyledTextButton>
             </RelativeContainer>
 
-            <SignUpButtonLink>Sign Up</SignUpButtonLink>
             <LoginButtonLink>Login</LoginButtonLink>
             <HamburgerDropdown
               handleNavigationMenuClick={handleNavigationMenuClick}

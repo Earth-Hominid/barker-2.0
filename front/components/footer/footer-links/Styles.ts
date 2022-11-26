@@ -1,7 +1,7 @@
 import tw from 'tailwind-styled-components';
 
 export const MainContainer = tw.div`
-  bg-stone-300
+  bg-[#605649]
   dark:bg-stone-800
   w-full
   border-t

@@ -2,8 +2,8 @@ import tw from 'tailwind-styled-components';
 
 export const MainContainer = tw.div`
   w-full
-  bg-stone-300
-  dark:bg-[#0E141B]
+  bg-[#605649]
+  dark:bg-stone-800
 `;
 
 export const InsideContainer = tw.div`
@@ -24,7 +24,7 @@ export const ActionButtonHolder = tw.div`
   text-2xl
   items-center
   justify-center
-  text-stone-700
+  text-[#EADEB9]
   cursor-pointer
   min-w-[200px]
 `;

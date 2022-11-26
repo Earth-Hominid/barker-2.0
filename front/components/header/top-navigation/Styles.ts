@@ -56,9 +56,26 @@ export const AbsoluteContainer = tw.div`
   duration-500
 `;
 
+export const AbsoluteRectangle = tw.div`
+  hidden
+  group-hover:flex
+  blur-sm
+  absolute
+  rounded-md
+  -inset-0.5
+  dark:bg-stone-500
+  bg-stone-600
+  opacity-90
+  group-hover:opacity-100
+  transition
+  group-hover:duration-300
+  duration-500
+`;
+
 export const IconLink = tw.a`
   text-stone-600 
   dark:text-stone-400
+  dark:hover:text-[#EADEB9]
   w-5
   h-5
   md:h-6
@@ -68,6 +85,7 @@ export const IconLink = tw.a`
 export const IconHolder = tw.div`
   text-stone-600 
   dark:text-stone-400
+  dark:hover:text-[#EADEB9]
   w-5
   h-5
   md:w-6
@@ -79,7 +97,7 @@ export const StyledButton = tw.button`
   group
 dark:bg-stone-900
 dark:hover:border-stone-500
-dark:hover:text-stone-500
+dark:hover:text-[#EADEB9]
 bg-stone-200
   rounded-full
   p-2
@@ -96,28 +114,32 @@ hover:text-stone-500
   shadow-lg
 `;
 
-export const TextButton = tw.button`
-whitespace-nowrap
+export const StyledTextButton = tw.button`
+  hidden
   relative  
   group
   text-stone-600 
   dark:text-stone-400
-  dark:bg-stone-900
-  dark:hover:border-stone-500
+  dark:hover:text-[#EADEB9]
+dark:bg-stone-900
+dark:hover:border-stone-500
+bg-stone-200
   rounded-md
   p-2
-  flex
+  md:flex
   items-center
   justify-center
   border
   border-transparent
 hover:border-stone-500
+hover:text-stone-500
   transition-all
   duration-300
   ease-linear
-  hover:shadow-lg
+  shadow-lg
   text-sm
-`;
+   whitespace-nowrap
+  `;
 
 export const HeaderSpan = tw.span`
   absolute 
@@ -148,31 +170,6 @@ export const HamburgerContainer = tw.div`
  md:hidden
 `;
 
-export const SignUpButtonLink = tw.button`
-  hidden md:inline-flex
-  whitespace-nowrap
-  dark:text-[#EADEB9]
-  dark:hover:text-[#605649]
-  dark:border-[#EADEB9]
-  dark:hover:bg-[#EADEB9]
-  text-[#605649]
-  border-[#EADEB9]
-  hover:bg-[#EADEB9]
-  hover:text-[#605649]
-  border-2
-  bg-transparent
-  px-3
-  py-1
-  rounded-3xl
-  cursor-pointer
-  hover:border-2
-  transition
-  duration-300
-  ease-in-out
-  text-sm
-  font-semibold
-`;
-
 export const LoginButtonLink = tw.button`
   hidden md:inline-flex
   border-2
@@ -180,8 +177,9 @@ export const LoginButtonLink = tw.button`
   bg-[#EADEB9]
   text-[#605649]
   dark:hover:text-[#EADEB9]
-  hover:border-[#EADEB9]
+  hover:border-[#605649]
   border-[#EADEB9]
+  dark:hover:border-[#EADEB9]
   dark:hover:bg-transparent
   px-3
   py-1
