@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import DropdownMenu from './DropdownMenu';
+import Menu from './Menu';
 import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
 
 import { HomeModernIcon } from '@heroicons/react/24/outline';
@@ -16,7 +16,7 @@ import {
   IconHolder,
 } from './Styles';
 
-const DropdownContainer = () => {
+const Dropdown = () => {
   const dropdownRef = useRef<HTMLInputElement>(null);
   const [openMenu, setOpenMenu] = useState(false);
 
@@ -63,10 +63,10 @@ const DropdownContainer = () => {
             </IconHolder>
           )}
         </SubContainer>
-        {openMenu ? <DropdownMenu /> : ''}
+        {openMenu ? <Menu /> : ''}
       </MainContainer>
     </>
   );
 };
 
-export default DropdownContainer;
+export default Dropdown;

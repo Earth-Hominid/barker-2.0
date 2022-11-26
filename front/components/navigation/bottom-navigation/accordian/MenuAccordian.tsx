@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import AccordianContent from './AccordianContent';
-import { ChevronRightIcon, ChevronDownIcon } from '@heroicons/react/24/solid';
-
+import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import {
   AccordianContainer,
   AccordianSummary,
@@ -10,7 +9,20 @@ import {
   IconHolder,
 } from './Styles';
 
-const MenuAccordian = ({ props }) => {
+interface DatapointInterface {
+  id: string;
+  url: string;
+  name: string;
+}
+
+interface Props {
+  props: {
+    title: string;
+    datapoints: Array<DatapointInterface>;
+  };
+}
+
+const MenuAccordian: React.FC<Props> = ({ props }) => {
   const [accordianOpen, setAccordianOpen] = useState(false);
 
   const handleAccordianClick = () => {

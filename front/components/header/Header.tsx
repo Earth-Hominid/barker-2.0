@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import TopNavigation from './top-navigation/TopNavigation';
-import BottomNavigation from './bottom-navigation/BottomNavigation';
+import TopNavigation from '../navigation/top-navigation/TopNavigation';
+import BottomNavigation from '../navigation/bottom-navigation/BottomNavigation';
 
 interface Props {}
 

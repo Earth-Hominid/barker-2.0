@@ -1,16 +1,15 @@
 import { motion } from 'framer-motion';
 import {
-  Bars3Icon,
-  XMarkIcon,
   SunIcon,
   MoonIcon,
   ChatBubbleBottomCenterTextIcon,
   BuildingLibraryIcon,
+  Bars3Icon,
+  XMarkIcon,
 } from '@heroicons/react/24/outline';
 
-import Logo from '../logo/Logo';
-import DropdownContainer from './drop-down-menu/DropdownContainer';
-import HamburgerDropdown from './hamburger-drop-down/HamburgerDropdown';
+import Logo from './logo/Logo';
+import DropdownContainer from './drop-down-menu/Dropdown';
 import {
   MainContainer,
   InsideContainer,
@@ -22,11 +21,7 @@ import {
   AbsoluteContainer,
   StyledButton,
   StyledTextButton,
-  TextButton,
   HeaderSpan,
-  BrownText,
-  ButtonLink,
-  SignUpButtonLink,
   LoginButtonLink,
   LogoutButtonLink,
 } from './Styles';
@@ -131,12 +126,24 @@ function TopNavigation({
               <AbsoluteRectangle></AbsoluteRectangle>
               <StyledTextButton>Sign Up</StyledTextButton>
             </RelativeContainer>
-
             <LoginButtonLink>Login</LoginButtonLink>
-            <HamburgerDropdown
-              handleNavigationMenuClick={handleNavigationMenuClick}
-              navigationMenuToggle={navigationMenuToggle}
-            />
+            <RelativeContainer>
+              <AbsoluteContainer></AbsoluteContainer>
+              <StyledButton
+                onClick={handleNavigationMenuClick}
+                className="md:hidden"
+              >
+                {navigationMenuToggle ? (
+                  <IconHolder>
+                    <XMarkIcon />
+                  </IconHolder>
+                ) : (
+                  <IconHolder>
+                    <Bars3Icon />
+                  </IconHolder>
+                )}
+              </StyledButton>
+            </RelativeContainer>
           </IconContainer>
         </motion.div>
       </InsideContainer>

@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import MenuAccordian from './accordian/MenuAccordian';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
 
+import SearchBar from '../searchbar/Searchbar';
+
 import {
   BottomNavigationMenu,
   ActionButtonHolder,
@@ -15,6 +17,8 @@ import {
   SignUpButtonLink,
   CreateSubforumButton,
   CreatePostButton,
+  DashboardButton,
+  DemoAccountButton,
 } from './Styles';
 
 function BottomNavigation({
@@ -46,7 +50,18 @@ function BottomNavigation({
 
   return (
     <BottomNavigationMenu>
-      <ActionButtonHolder></ActionButtonHolder>
+      <ActionButtonHolder>
+        <SearchBar />
+      </ActionButtonHolder>
+      <ActionButtonHolder>
+        <DemoAccountButton>Demo Account</DemoAccountButton>
+        <ButtonLink>Already a member?</ButtonLink>
+        <SignUpButtonLink>Login</SignUpButtonLink>
+      </ActionButtonHolder>
+      <NavigationMenu>
+        <MenuAccordian props={subforumObject} />
+        <MenuAccordian props={popularSubforumObject} />
+      </NavigationMenu>
     </BottomNavigationMenu>
   );
 }

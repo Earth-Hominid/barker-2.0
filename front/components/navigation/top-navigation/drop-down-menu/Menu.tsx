@@ -6,11 +6,11 @@ import {
   DocumentPlusIcon,
 } from '@heroicons/react/24/outline';
 
-import MenuList from './MenuList';
+import List from './List';
 
 import { MenuContainer, MenuHeader, ButtonHolder, IconHolder } from './Styles';
 
-const DropdownMenu = () => {
+const Menu = () => {
   const [user, setUser] = useState(false);
 
   return (
@@ -55,7 +55,7 @@ const DropdownMenu = () => {
       ) : (
         <></>
       )}
-      <MenuList />
+      <List />
       <MenuHeader>barker</MenuHeader>
       <Link href="/about">
         <ButtonHolder>
@@ -66,4 +66,4 @@ const DropdownMenu = () => {
   );
 };
 
-export default DropdownMenu;
+export default Menu;

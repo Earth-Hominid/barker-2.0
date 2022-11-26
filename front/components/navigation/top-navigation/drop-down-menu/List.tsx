@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 import { MenuItem, LoadingText } from './Styles';
 
-const MenuList = () => {
+const List = () => {
   return <></>;
 };
 
-export default MenuList;
+export default List;

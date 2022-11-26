@@ -36,12 +36,13 @@ export const AccordianContentContainer = tw.div`
 export const AccordianText = tw.p`
   p-2
   text-sm
+  text-gray-600
   tracking-normal
   leading-6
-  hover:bg-blue-200
+  hover:bg-yellow-100
   rounded-md
 `;
 
 export const IconHolder = tw.div`
-h-5 w-5 text-zinc-600 hover:bg-blue-100 rounded-3xl
+h-5 w-5 text-gray-600 hover:bg-yellow-100 rounded-3xl
 `;
