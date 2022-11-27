@@ -1,26 +1,27 @@
 import { gql, useQuery } from '@apollo/client';
-
-const GET_FORUMS = gql`
-  query getForums {
-    forums {
-      name
-      description
-      creator {
-        username
-      }
-    }
-  }
-`;
-
+import ForumInfo from './ForumInfo.tsx';
+import { GET_FORUMS } from 'queries/ForumQuery';
+import LoadingSpinner from '../spinner/Spinner';
 type Props = {};
 
 const Forums = (props: Props) => {
   const { loading, error, data } = useQuery(GET_FORUMS);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingSpinner />;
   if (error) return <p>Oops, something went wrong</p>;
 
-  return <div>Forums</div>;
+  return (
+    <>
+      {!loading && !error && (
+        <>
+          <h1>Active Forums</h1>
+          {data.forums.map((forum) => (
+            <ForumInfo key={forum.id} forum={forum} />
+          ))}
+        </>
+      )}
+    </>
+  );
 };
 
 export default Forums;
