@@ -1,5 +1,5 @@
 import { gql, useQuery } from '@apollo/client';
-import ForumInfo from './ForumInfo.tsx';
+import ForumInfo from './ForumInfo';
 import { GET_FORUMS } from 'queries/ForumQuery';
 import LoadingSpinner from '../spinner/Spinner';
 type Props = {};
