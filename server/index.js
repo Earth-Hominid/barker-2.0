@@ -12,6 +12,8 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
+app.use(cors());
+
 app.use(
   '/graphql',
   graphqlHTTP({

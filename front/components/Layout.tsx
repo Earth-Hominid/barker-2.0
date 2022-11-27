@@ -3,6 +3,7 @@ import Header from './header/Header';
 import Footer from './footer/Footer';
 import { useContext } from 'react';
 import { DarkContext } from '@/context/dark-context';
+import Forums from './forums/Forums';
 
 interface Props {
   title: string;
@@ -27,7 +28,9 @@ const Layout: React.FC<Props> = ({ title, description, keywords }) => {
             darkMode={darkMode}
           />
         </header>
-        <section id="hero" className="min-h-screen"></section>
+        <section id="hero" className="min-h-screen">
+          <Forums />
+        </section>
         <footer id="footer">
           <Footer />
         </footer>
