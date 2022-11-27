@@ -28,7 +28,7 @@ export const HomeText = tw.p`
   whitespace-nowrap
   hidden
   ml-2
-  md:inline
+  lg:inline
   text-stone-600
   dark:text-stone-400
   font-bold
@@ -38,8 +38,8 @@ export const LargeIconHolder = tw.div`
 text-stone-500
 dark:text-stone-400
   w-6 h-6 
-  md:h-8
-  md:w-8
+  lg:h-8
+  lg:w-8
 `;
 
 export const IconHolder = tw.div`

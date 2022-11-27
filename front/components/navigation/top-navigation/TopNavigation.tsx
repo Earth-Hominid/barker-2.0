@@ -9,6 +9,7 @@ import {
 } from '@heroicons/react/24/outline';
 
 import Logo from './logo/Logo';
+import SearchBar from '../searchbar/Searchbar';
 import DropdownContainer from './drop-down-menu/Dropdown';
 import {
   MainContainer,
@@ -24,6 +25,7 @@ import {
   HeaderSpan,
   LoginButtonLink,
   LogoutButtonLink,
+  ButtonContainer,
 } from './Styles';
 
 function TopNavigation({
@@ -58,6 +60,9 @@ function TopNavigation({
         >
           <Logo />
           <DropdownContainer />
+          <ButtonContainer>
+            <SearchBar />
+          </ButtonContainer>
         </motion.div>
         <motion.div
           initial={{
@@ -77,7 +82,7 @@ function TopNavigation({
           <IconContainer>
             <RelativeContainer>
               <AbsoluteContainer></AbsoluteContainer>
-              <StyledButton>
+              <StyledButton className="md:hidden lg:flex">
                 <IconLink href="#">
                   <BuildingLibraryIcon />
                 </IconLink>

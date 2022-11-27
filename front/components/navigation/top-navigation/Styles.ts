@@ -28,7 +28,7 @@ export const IconContainer = tw.div`
   text-lg
   space-x-3
   md:space-x-2
-  lg:space-x-5
+  lg:space-x-3
   justify-end
   md:pr-5
   dark:text-slate-300
@@ -78,8 +78,8 @@ export const IconLink = tw.a`
   dark:hover:text-[#EADEB9]
   w-5
   h-5
-  md:h-6
-  md:w-6
+  lg:h-6
+  lg:w-6
 `;
 
 export const IconHolder = tw.div`
@@ -88,8 +88,8 @@ export const IconHolder = tw.div`
   dark:hover:text-[#EADEB9]
   w-5
   h-5
-  md:w-6
-  md:h-6
+  lg:w-6
+  lg:h-6
 `;
 
 export const StyledButton = tw.button`
@@ -160,10 +160,6 @@ export const HeaderSpan = tw.span`
   duration-150 
   scale-0 
   origin-bottom
-`;
-
-export const ButtonContainer = tw.div`
-items-center space-x-2 mx-5 hidden md:inline-flex
 `;
 
 export const HamburgerContainer = tw.div`
@@ -237,3 +233,11 @@ flex-1
   ease-in-out
   text-sm
 `;
+
+export const ButtonContainer = tw.div`
+ items-center 
+ space-x-2 
+ mx-5 
+ hidden 
+ md:inline-flex
+ `;
