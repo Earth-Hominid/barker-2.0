@@ -1,6 +1,5 @@
 interface ForumInterface {
   description: string;
-
   name: string;
 }
 

@@ -2,8 +2,13 @@ import { gql, useQuery } from '@apollo/client';
 import { GET_FORUMS } from 'queries/ForumQuery';
 import ForumInfo from './ForumInfo';
 import ErrorText from './ErrorText';
-
 import LoadingSpinner from '../spinner/Spinner';
+
+interface ForumInterface {
+  description: string;
+  owner: string;
+  name: string;
+}
 
 const Forums = () => {
   const { loading, error, data } = useQuery(GET_FORUMS);

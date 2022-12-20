@@ -4,14 +4,21 @@ import Footer from './footer/Footer';
 import { useContext } from 'react';
 import { DarkContext } from '@/context/dark-context';
 import Forums from './forums/Forums';
+import { ChildProcess } from 'child_process';
 
 interface Props {
   title: string;
   keywords: string;
   description: string;
+  children?: React.ReactNode;
 }
 
-const Layout: React.FC<Props> = ({ title, description, keywords }) => {
+const Layout: React.FC<Props> = ({
+  title,
+  description,
+  keywords,
+  children,
+}) => {
   const { darkMode, handleToggleThemeClick } = useContext(DarkContext);
 
   return (
@@ -28,9 +35,7 @@ const Layout: React.FC<Props> = ({ title, description, keywords }) => {
             darkMode={darkMode}
           />
         </header>
-        <section id="hero" className="min-h-screen">
-          <Forums />
-        </section>
+        <main className="min-h-screen">{children}</main>
         <footer id="footer">
           <Footer />
         </footer>
