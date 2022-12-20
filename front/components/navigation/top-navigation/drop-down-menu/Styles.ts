@@ -6,6 +6,21 @@ export const MainContainer = tw.div`
   z-50
 `;
 
+export const ButtonHolder = tw.div`
+  flex 
+  flex-row
+  text-stone-600
+  hover:bg-[#EADEB9]
+  hover:text-[#605649]
+  dark:text-stone-400
+  dark:hover:bg-stone-900
+  cursor-pointer
+  w-full
+  rounded-md
+  items-center
+  p-2
+`;
+
 export const SubContainer = tw.div`
   flex 
   flex-row 
@@ -74,21 +89,6 @@ export const MenuHeader = tw.div`
   text-sm
   text-stone-500
   p-1
-`;
-
-export const ButtonHolder = tw.div`
-  flex 
-  flex-row
-  text-stone-600
-  hover:bg-[#EADEB9]
-  hover:text-[#605649]
-  dark:text-stone-400
-  dark:hover:bg-stone-900
-  cursor-pointer
-  w-full
-  rounded-md
-  items-center
-  p-2
 `;
 
 export const LoadingText = tw.p`

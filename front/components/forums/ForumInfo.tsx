@@ -1,8 +1,10 @@
-import React from 'react';
+interface ForumInterface {
+  description: string;
 
-type Props = {};
+  name: string;
+}
 
-const ForumInfo = ({ forum }) => {
+const ForumInfo: React.FC<{ forum: ForumInterface }> = ({ forum }) => {
   return (
     <>
       <h2>{`b/${forum.name}`}</h2>

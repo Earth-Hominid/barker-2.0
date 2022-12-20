@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState } from 'react';
+import ForumFeed from '@/components/forums/forum-feed/ForumFeed';
 
 import {
   ComputerDesktopIcon,
@@ -38,12 +39,9 @@ const Menu = () => {
       ) : (
         <></>
       )}
-      <MenuHeader>Feeds</MenuHeader>
-      <Link href="">
-        <ButtonHolder>
-          <p className="ml-1">Forums</p>
-        </ButtonHolder>
-      </Link>
+      <MenuHeader>Active Forums</MenuHeader>
+      <ForumFeed />
+
       {user ? (
         <>
           <Link href="">
