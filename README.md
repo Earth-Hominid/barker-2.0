@@ -13,3 +13,9 @@ Barker is a full stack web application for a social media platform. It allows us
 [Express Validator](https://express-validator.github.io/docs/) used to validate form data, including user sign up.
 
 [BcryptJS](https://www.npmjs.com/package/bcrypt) is used to encrypt passwords.
+
+### Authentication
+
+[JWT - JSON Webtokens](https://jwt.io/) were utilized for user authentication and authorization.
+
+When a member is logged in, each subsequent request from their account will include the JSON Webtoken, thus, granting them access to the routes and resources that are permitted with that token.
