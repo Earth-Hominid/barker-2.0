@@ -7,3 +7,7 @@ Bark at the world. Howl at the moon.
 ## Description
 
 Barker is a full stack web application for a social media platform. It allows users to create accounts and socialize with fellow members.
+
+### Validation
+
+[Express Validator](https://express-validator.github.io/docs/) used to validate form data, including user sign up.

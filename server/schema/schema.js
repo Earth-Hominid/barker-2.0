@@ -1,4 +1,4 @@
-const { MemberType, ForumType, PostType } = require('./schemaTypes');
+const { MemberType, UserType, ForumType, PostType } = require('./schemaTypes');
 
 // Mongoose models
 const Member = require('../models/Member');

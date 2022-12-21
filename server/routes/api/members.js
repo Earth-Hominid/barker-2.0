@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { check, validationResult } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const Member = require('../../models/Member');
 
@@ -11,16 +11,16 @@ const Member = require('../../models/Member');
 router.post(
   '/',
   [
-    check('username', 'Username is required').not().isEmpty(),
-    check('email', 'Please include a valid email address').isEmail(),
-    check('password', 'Password requires 6 or more characters').isLength({
+    body('username', 'Username is required').not().isEmpty(),
+    body('email', 'Please include a valid email address').isEmail(),
+    body('password', 'Password requires 6 or more characters').isLength({
       min: 6,
     }),
   ],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ erros: errors.array() });
+      return res.status(400).json({ errors: errors.array() });
     }
 
     const { username, email, password } = req.body;
