@@ -1,6 +1,7 @@
 // Mongoose models
 const Member = require('../models/Member');
 const Forum = require('../models/Forum');
+const Post = require('../models/Post');
 
 const {
   GraphQLObjectType,
@@ -8,6 +9,8 @@ const {
   GraphQLID,
   GraphQLString,
   GraphQLList,
+  GraphQLScalarType,
+  GraphQLInt,
 } = require('graphql');
 
 // Member Type
@@ -36,4 +39,28 @@ const ForumType = new GraphQLObjectType({
   }),
 });
 
-module.exports = { MemberType, ForumType };
+// Post Type
+const PostType = new GraphQLObjectType({
+  name: 'Post',
+  fields: () => ({
+    id: { type: GraphQLID },
+    title: { type: GraphQLString },
+    image: { type: GraphQLString },
+    content: { type: GraphQLString },
+    forum: {
+      type: ForumType,
+      resolve(parent, args) {
+        return Forum.findById(parent.forumId);
+      },
+    },
+    creator: {
+      type: MemberType,
+      resolve(parent, args) {
+        return Member.findById(parent.memberId);
+      },
+    },
+    votes: { type: GraphQLInt },
+  }),
+});
+
+module.exports = { MemberType, ForumType, PostType };

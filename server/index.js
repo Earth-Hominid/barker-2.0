@@ -16,16 +16,19 @@ connectDatabase();
 app.use(express.json({ extended: false }));
 
 app.use(cors());
-// app.use(
-//   '/graphql',
-//   graphqlHTTP({
-//     schema,
-//     graphiql: process.env.NODE_ENV === 'development',
-//   })
-// );
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: process.env.NODE_ENV === 'development',
+  })
+);
 
 app.get('/', (req, res) => res.send('API Running'));
 // Define routes
+app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
+app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/forums', require('./routes/api/forums'));
 app.use('/api/members', require('./routes/api/members'));
 app.use('/api/posts', require('./routes/api/posts'));

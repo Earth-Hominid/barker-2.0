@@ -55,6 +55,11 @@ const Menu = () => {
       )}
       <List />
       <MenuHeader>barker</MenuHeader>
+      <Link href="/forums">
+        <ButtonHolder>
+          <p className="ml-1">All forums</p>
+        </ButtonHolder>
+      </Link>
       <Link href="/about">
         <ButtonHolder>
           <p className="ml-1">About</p>

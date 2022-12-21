@@ -1,8 +1,9 @@
-const { MemberType, ForumType } = require('./schemaTypes');
+const { MemberType, ForumType, PostType } = require('./schemaTypes');
 
 // Mongoose models
 const Member = require('../models/Member');
 const Forum = require('../models/Forum');
+const Post = require('../models/Post');
 
 const {
   GraphQLObjectType,
@@ -11,6 +12,7 @@ const {
   GraphQLString,
   GraphQLList,
   GraphQLNonNull,
+  GraphQLInt,
 } = require('graphql');
 
 // Querys
@@ -41,6 +43,19 @@ const RootQuery = new GraphQLObjectType({
       type: new GraphQLList(ForumType),
       resolve(parent, args) {
         return Forum.find();
+      },
+    },
+    post: {
+      type: PostType,
+      args: { id: { type: GraphQLID } },
+      resolve(parent, args) {
+        return Post.findById(args.id);
+      },
+    },
+    posts: {
+      type: new GraphQLList(PostType),
+      resolve(parent, args) {
+        return Post.find();
       },
     },
   },
@@ -134,6 +149,58 @@ const barkerMutations = new GraphQLObjectType({
             $set: {
               name: args.name,
               description: args.description,
+            },
+          },
+          { new: true }
+        );
+      },
+    },
+
+    addPost: {
+      type: PostType,
+      args: {
+        title: { type: new GraphQLNonNull(GraphQLString) },
+        content: { type: new GraphQLNonNull(GraphQLString) },
+        memberId: { type: new GraphQLNonNull(GraphQLID) },
+        forumId: { type: new GraphQLNonNull(GraphQLID) },
+        votes: { type: GraphQLInt },
+      },
+      resolve(parent, args) {
+        const post = new Post({
+          title: args.title,
+          content: args.content,
+          memberId: args.memberId,
+          forumId: args.forumId,
+          votes: args.votes,
+        });
+        return post.save();
+      },
+    },
+    deletePost: {
+      type: PostType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+      },
+      resolve(parent, args) {
+        return Post.findByIdAndRemove(args.id, args);
+      },
+    },
+    updatePost: {
+      type: PostType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLID) },
+        title: { type: GraphQLString },
+        content: { type: GraphQLString },
+        votes: { type: GraphQLInt },
+      },
+      resolve(parent, args) {
+        return Post.findByIdAndUpdate(
+          args.id,
+          {
+            $set: {
+              title: args.title,
+              content: args.content,
+              votes: args.votes,
             },
           },
           { new: true }

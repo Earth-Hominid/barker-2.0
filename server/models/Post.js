@@ -1,21 +1,28 @@
 const mongoose = require('mongoose');
 
-const ForumSchema = mongoose.Schema(
+const PostSchema = mongoose.Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
     },
-    description: {
+    content: {
       type: String,
       required: true,
+    },
+    forumId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Forum',
     },
     memberId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Member',
     },
+    votes: {
+      type: Number,
+    },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Forum', ForumSchema);
+module.exports = mongoose.model('Post', PostSchema);
