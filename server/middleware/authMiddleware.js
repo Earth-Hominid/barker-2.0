@@ -3,22 +3,36 @@ const asyncHandler = require('express-async-handler');
 const User = require('../models/User');
 
 const protectRoute = asyncHandler(async (req, res, next) => {
-  // Get token from header
-  token = req.headers.authorization.split(' ')[1];
+  let token;
 
-  if (!token) {
-    res.status(401).json({ msg: 'Not token, authorization denied' });
-    throw new Error('Not authorized, no token');
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    try {
+      // Get token from header
+      token = req.headers.authorization.split(' ')[1];
+
+      // Verify token
+      const verifyTheToken = jwt.verify(token, process.env.JWT_SECRET);
+
+      // Get user from the token
+      const verifiedUser = await User.findById(verifyTheToken.user.id).select(
+        '-password'
+      );
+      // Set user in the request
+      req.user = verifiedUser;
+
+      next();
+    } catch (error) {
+      console.log(error);
+      res.status(401);
+      throw new Error('Not authorized');
+    }
   }
-
-  try {
-    // Verify token
-    const verifiedToken = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = verifiedToken.user;
-    next();
-  } catch (error) {
-    res.status(401).json({ msg: 'Token is not valid' });
-    throw new Error('Token is not valid');
+  if (!token) {
+    res.status(401);
+    throw new Error('Not authorized, no token');
   }
 });
 
