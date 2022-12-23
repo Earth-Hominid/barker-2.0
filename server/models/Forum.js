@@ -10,12 +10,12 @@ const ForumSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    memberId: {
+    userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Member',
+      ref: 'user',
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model('Forum', ForumSchema);
+module.exports = Forum = mongoose.model('forum', ForumSchema);
