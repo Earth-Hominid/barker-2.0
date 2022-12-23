@@ -5,19 +5,26 @@ const CommentSchema = mongoose.Schema(
     content: {
       type: String,
       required: true,
+      minLength: 2,
+      maxlength: 5000,
     },
-    forumId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'forum',
-    },
+    forum: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'forum',
+        required: true,
+      },
+    ],
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'user',
     },
-    postId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'post',
-    },
+    post: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'post',
+      },
+    ],
     votes: {
       type: Number,
     },
